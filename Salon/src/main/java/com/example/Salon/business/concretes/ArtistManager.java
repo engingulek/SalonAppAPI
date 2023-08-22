@@ -6,6 +6,7 @@ import com.example.Salon.core.utilities.results.SuccessDataResult;
 import com.example.Salon.dataAccess.ArtistDao;
 import com.example.Salon.entities.concretes.Artist;
 
+import com.example.Salon.entities.dtos.AritstWithServiceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class ArtistManager implements ArtistService {
         this.artistDao = artistDao;
     }
     @Override
-    public DataResult<List<Artist>> getAll() {
-        return new SuccessDataResult<List<Artist>>(this.artistDao.findAll(),"Data Listed");
+    public DataResult<List<AritstWithServiceDto>> getAll() {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getall(),"Data Listed");
     }
 }
