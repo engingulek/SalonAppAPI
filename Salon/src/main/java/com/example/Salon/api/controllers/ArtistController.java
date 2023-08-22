@@ -4,6 +4,7 @@ package com.example.Salon.api.controllers;
 import com.example.Salon.business.abstracts.ArtistService;
 import com.example.Salon.core.utilities.results.DataResult;
 import com.example.Salon.entities.concretes.Artist;
+import com.example.Salon.entities.dtos.AritstWithServiceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,5 @@ public class ArtistController {
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Artist>> getAll() {return this.artistService.getAll();}
+    public DataResult<List<AritstWithServiceDto>> getAll() {return this.artistService.getAll();}
 }

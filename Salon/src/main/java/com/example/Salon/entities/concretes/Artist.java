@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,6 +22,10 @@ public class Artist {
 
     @Column(name = "imageurl")
     private  String imageUrl;
+
+    @Column(name = "bestserviceid")
+    private  int bestserviceid;
+
     @Column(name = "name")
     private  String name;
 
@@ -37,7 +42,7 @@ public class Artist {
     private  String about;
 
     @Column(name = "services")
-    private ArrayList<Integer> services;
+    private List<Integer> services;
 
 
 }

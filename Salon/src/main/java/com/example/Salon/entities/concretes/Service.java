@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "topservices")
+@Table(name = "services")
 @AllArgsConstructor
 @NoArgsConstructor
-public class TopService {
-
+public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
