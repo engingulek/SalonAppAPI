@@ -23,6 +23,6 @@ public class ArtistController {
         this.artistService = artistService;
     }
 
-    @GetMapping("/getAll")
-    public DataResult<List<AritstWithServiceDto>> getAll() {return this.artistService.getAll();}
+    @GetMapping("/getTopArtists")
+    public DataResult<List<AritstWithServiceDto>> getAll() {return this.artistService.getTopArtists();}
 }
