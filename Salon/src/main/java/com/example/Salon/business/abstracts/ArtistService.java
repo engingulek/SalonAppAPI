@@ -8,5 +8,5 @@ import com.example.Salon.entities.dtos.AritstWithServiceDto;
 import java.util.List;
 
 public interface ArtistService {
-    DataResult<List<AritstWithServiceDto>> getAll();
+    DataResult<List<AritstWithServiceDto>> getTopArtists();
 }

@@ -23,7 +23,7 @@ public class ArtistManager implements ArtistService {
         this.artistDao = artistDao;
     }
     @Override
-    public DataResult<List<AritstWithServiceDto>> getAll() {
-        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getall(),"Data Listed");
+    public DataResult<List<AritstWithServiceDto>> getTopArtists() {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getTopArtists(),"Data Listed");
     }
 }
