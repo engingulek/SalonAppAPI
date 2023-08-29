@@ -5,6 +5,7 @@ import com.example.Salon.business.abstracts.ArtistService;
 import com.example.Salon.core.utilities.results.DataResult;
 import com.example.Salon.entities.concretes.Artist;
 import com.example.Salon.entities.dtos.AritstWithServiceDto;
+import com.example.Salon.entities.dtos.ArtistComment;
 import com.example.Salon.entities.dtos.ArtitstInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,4 +28,10 @@ public class ArtistController {
 
     @GetMapping("/getArtistInfo")
     public  DataResult<List<ArtitstInfo>> getArtistInfo(@RequestParam("artistId")  int artistId) {return  this.artistService.getArtistInfo(artistId);};
+
+    @GetMapping("/getArtistComment")
+    public  DataResult<List<ArtistComment>> getArtistComment(@RequestParam("artistId")  int artistId){
+        return this.artistService.getArtistComment(artistId);
+    }
+
 }

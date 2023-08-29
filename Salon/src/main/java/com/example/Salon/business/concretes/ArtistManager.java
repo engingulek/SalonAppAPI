@@ -7,6 +7,7 @@ import com.example.Salon.dataAccess.ArtistDao;
 import com.example.Salon.entities.concretes.Artist;
 
 import com.example.Salon.entities.dtos.AritstWithServiceDto;
+import com.example.Salon.entities.dtos.ArtistComment;
 import com.example.Salon.entities.dtos.ArtitstInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class ArtistManager implements ArtistService {
     @Override
     public DataResult<List<ArtitstInfo>> getArtistInfo(int artistId) {
         return new SuccessDataResult<List<ArtitstInfo>>(this.artistDao.getArtistInfo(artistId),"Data listed");
+    }
+
+    public  DataResult<List<ArtistComment>> getArtistComment(int artistId){
+        return  new SuccessDataResult<List<ArtistComment>>(this.artistDao.getArtistComment(artistId),"Data Listed");
     }
 }
