@@ -37,4 +37,27 @@ public class ArtistManager implements ArtistService {
     public  DataResult<List<ArtistComment>> getArtistComment(int artistId){
         return  new SuccessDataResult<List<ArtistComment>>(this.artistDao.getArtistComment(artistId),"Data Listed");
     }
+
+    @Override
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResult(String searchText) {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResult(searchText),"Data Listed");
+    }
+
+
+   public  DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayASC(String searchText){
+       return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultOrderPayASC(searchText),"Data Listed");
+   }
+    public  DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayDESC(String searchText){
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultOrderPayDESC(searchText),"Data Listed");
+    }
+
+    @Override
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResultHighRating(String searchText) {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultHightRating(searchText),"Data Listed");
+    }
+
+    @Override
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId) {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultServiceFilter(serviceId),"Data Listed");
+    }
 }

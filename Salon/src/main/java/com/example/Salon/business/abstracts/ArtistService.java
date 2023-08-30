@@ -15,4 +15,13 @@ public interface ArtistService {
     DataResult<List<ArtitstInfo>> getArtistInfo(int artistId);
 
     DataResult<List<ArtistComment>> getArtistComment(int artistId);
+
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResult(String searchText);
+
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayASC(String searchText);
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayDESC(String searchText);
+
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResultHighRating(String searchText);
+
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId);
 }

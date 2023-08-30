@@ -34,4 +34,29 @@ public class ArtistController {
         return this.artistService.getArtistComment(artistId);
     }
 
+    @GetMapping("/getArtistSearchResult")
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResult(@RequestParam("searchText") String searchText) {
+        return this.artistService.getSearchArtistResult(searchText);}
+
+    @GetMapping("/getArtistSearchResultOrderASC")
+    public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultOrderASC(@RequestParam("searchText") String searchText){
+        return  this.artistService.getSearchArtistResultOrderPayASC(searchText);
+    }
+
+    @GetMapping("/getArtistSearchResultOrderDESC")
+    public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultOrderDESC(@RequestParam("searchText") String searchText){
+        return  this.artistService.getSearchArtistResultOrderPayDESC(searchText);
+    }
+
+    @GetMapping("/getArtistSearchResultHighRating")
+    public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultHighRating(@RequestParam("searchText") String searchText){
+        return  this.artistService.getSearchArtistResultHighRating(searchText);
+    }
+
+
+    @GetMapping("/getSearchArtistResultServiceFilter")
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(@RequestParam("serviceId") int serviceId) {
+        return  this.artistService.getSearchArtistResultServiceFilter(serviceId);
+    }
+
 }
