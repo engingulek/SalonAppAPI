@@ -5,6 +5,7 @@ import com.example.Salon.core.utilities.results.DataResult;
 import com.example.Salon.core.utilities.results.SuccessDataResult;
 import com.example.Salon.dataAccess.ServiceDao;
 import com.example.Salon.entities.concretes.Service;
+import com.example.Salon.entities.dtos.ServiceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ServiceManager implements ServiceService {
     }
 
     @Override
-    public DataResult<List<Service>> getAll() {
-        return new SuccessDataResult<List<Service>>(this.serviceDao.findAll(),"Data Listed");
+    public DataResult<List<ServiceDto>> getAll() {
+        return new SuccessDataResult<List<ServiceDto>>(this.serviceDao.getAll(),"Data Listed");
     }
 }

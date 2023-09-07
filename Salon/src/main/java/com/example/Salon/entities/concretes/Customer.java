@@ -7,16 +7,20 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "services")
+@Table(name = "customers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Service {
+public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private  int id;
 
+    @Column(name = "imageurl")
+    private  String imageUrl;
 
-    @Column(name = "name")
-    private  String name;
+    @Column(name = "namesurname")
+    private  String nameSurname;
+
 }
