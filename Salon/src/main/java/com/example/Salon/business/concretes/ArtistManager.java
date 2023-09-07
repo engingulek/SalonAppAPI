@@ -44,6 +44,14 @@ public class ArtistManager implements ArtistService {
     }
 
 
+
+
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResultFilterService(String searchText,int serviceId) {
+        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultFilterService(searchText,serviceId),"Data Listed");
+    }
+
+    //
+
    public  DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayASC(String searchText){
        return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultOrderPayASC(searchText),"Data Listed");
    }
@@ -56,8 +64,8 @@ public class ArtistManager implements ArtistService {
         return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultHightRating(searchText),"Data Listed");
     }
 
-    @Override
-    public DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId) {
+
+    /*public DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId) {
         return new SuccessDataResult<List<AritstWithServiceDto>>(this.artistDao.getSearchArtistResultServiceFilter(serviceId),"Data Listed");
-    }
+    }*/
 }

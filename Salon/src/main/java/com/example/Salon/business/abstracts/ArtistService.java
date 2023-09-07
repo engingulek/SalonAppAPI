@@ -18,10 +18,14 @@ public interface ArtistService {
 
     DataResult<List<AritstWithServiceDto>> getSearchArtistResult(String searchText);
 
+    DataResult<List<AritstWithServiceDto>> getSearchArtistResultFilterService(String searchText,int serviceId);
+
+
+
     DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayASC(String searchText);
     DataResult<List<AritstWithServiceDto>> getSearchArtistResultOrderPayDESC(String searchText);
 
     DataResult<List<AritstWithServiceDto>> getSearchArtistResultHighRating(String searchText);
 
-    DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId);
+   // DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(int serviceId);
 }

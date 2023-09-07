@@ -34,6 +34,13 @@ public interface ArtistDao  extends JpaRepository<Artist,Integer> {
     List<AritstWithServiceDto> getSearchArtistResult(String searchText);
 
 
+    // Search Result artist filter service
+    @Query("Select new com.example.Salon.entities.dtos.AritstWithServiceDto(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay) From Artist as ar inner join Service as s on ar.bestserviceid = s.id Where Lower(ar.name) LIKE %:searchText% and s.id = :serviceId")
+    List<AritstWithServiceDto> getSearchArtistResultFilterService(String searchText,int serviceId);
+
+
+    // Sort query
+
     @Query("Select new com.example.Salon.entities.dtos.AritstWithServiceDto(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay)"+
             "From Artist as ar inner join Service as s on ar.bestserviceid = s.id  Where Lower(ar.name) LIKE %:searchText% Order By ar.pay ASC")
     List<AritstWithServiceDto> getSearchArtistResultOrderPayASC(String searchText);
@@ -47,9 +54,10 @@ public interface ArtistDao  extends JpaRepository<Artist,Integer> {
     List<AritstWithServiceDto> getSearchArtistResultHightRating(String searchText);
 
 
-    @Query("Select new com.example.Salon.entities.dtos.AritstWithServiceDto(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay)"+
+   /* @Query("Select new com.example.Salon.entities.dtos.AritstWithServiceDto(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay)"+
             "From Artist as ar inner join Service as s on ar.bestserviceid = s.id  Where s.id = :serviceId")
-    List<AritstWithServiceDto> getSearchArtistResultServiceFilter(int serviceId);
+    List<AritstWithServiceDto> getSearchArtistResultServiceFilter(int serviceId);*/
+
 
 
 

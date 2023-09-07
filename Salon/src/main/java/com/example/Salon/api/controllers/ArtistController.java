@@ -38,12 +38,35 @@ public class ArtistController {
     public DataResult<List<AritstWithServiceDto>> getSearchArtistResult(@RequestParam("searchText") String searchText) {
         return this.artistService.getSearchArtistResult(searchText);}
 
-    @GetMapping("/getArtistSearchResultOrderASC")
+
+
+    @GetMapping("/getArtistSearchResultFilterService")
+    public DataResult<List<AritstWithServiceDto>> getSearchArtistResult(@RequestParam("searchText") String searchText,@RequestParam("serviceId") int serviceId ) {
+        return this.artistService.getSearchArtistResultFilterService(searchText,serviceId);}
+    // getSearchArtistResultFilterService
+
+
+
+    @GetMapping("/getArtistSearchResultSort")
+    public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultSort(@RequestParam("sortType") String sortType,@RequestParam("searchText") String searchText) {
+        if (sortType.equals("DESC")){
+            return  this.artistService.getSearchArtistResultOrderPayDESC(searchText);
+        }
+       else if (sortType.equals("ASC")){
+            return  this.artistService.getSearchArtistResultOrderPayASC(searchText);
+        }
+       else {
+            return  this.artistService.getSearchArtistResultHighRating(searchText);
+        }
+
+    }
+
+    @GetMapping("/getArtistSearchResultOrderPayASC")
     public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultOrderASC(@RequestParam("searchText") String searchText){
         return  this.artistService.getSearchArtistResultOrderPayASC(searchText);
     }
 
-    @GetMapping("/getArtistSearchResultOrderDESC")
+    @GetMapping("/getArtistSearchResultOrderPayDESC")
     public  DataResult<List<AritstWithServiceDto>> getArtistSearchResultOrderDESC(@RequestParam("searchText") String searchText){
         return  this.artistService.getSearchArtistResultOrderPayDESC(searchText);
     }
@@ -54,9 +77,9 @@ public class ArtistController {
     }
 
 
-    @GetMapping("/getSearchArtistResultServiceFilter")
+  /*  @GetMapping("/getSearchArtistResultServiceFilter")
     public DataResult<List<AritstWithServiceDto>> getSearchArtistResultServiceFilter(@RequestParam("serviceId") int serviceId) {
         return  this.artistService.getSearchArtistResultServiceFilter(serviceId);
-    }
+    }*/
 
 }

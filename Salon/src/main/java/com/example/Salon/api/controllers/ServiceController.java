@@ -3,6 +3,7 @@ package com.example.Salon.api.controllers;
 import com.example.Salon.business.abstracts.ServiceService;
 import com.example.Salon.core.utilities.results.DataResult;
 import com.example.Salon.entities.concretes.Service;
+import com.example.Salon.entities.dtos.ServiceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,5 @@ public class ServiceController {
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Service>> getAll() {return  this.serviceService.getAll();}
+    public DataResult<List<ServiceDto>> getAll() {return  this.serviceService.getAll();}
 }
