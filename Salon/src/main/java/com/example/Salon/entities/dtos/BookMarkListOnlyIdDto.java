@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookMarkListOnlyIdDto {
-   public   int user_id;
+
+   private  int id;
+   private   int artist_id;
+
+   private int user_id;
 
 }

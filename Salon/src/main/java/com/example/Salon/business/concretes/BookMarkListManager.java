@@ -7,6 +7,7 @@ import com.example.Salon.core.utilities.results.SuccessDataResult;
 import com.example.Salon.dataAccess.BookMarkLisrDao;
 import com.example.Salon.entities.concretes.BookMarkList;
 import com.example.Salon.entities.dtos.AritstWithServiceDto;
+import com.example.Salon.entities.dtos.BookMarkListArtistWithService;
 import com.example.Salon.entities.dtos.BookMarkListOnlyIdDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,21 +40,28 @@ public class BookMarkListManager implements BookMarkListService {
 
     }
 
-    @Override
-    public DataResult<List<Integer>> getBookMarkListId(int user_id) {
-        var list = this.bookMarkLisrDao.getBookMarkListId(user_id);
-        List<Integer> listId = new ArrayList<Integer>();
-        list.forEach(id -> {
-            listId.add(id.user_id);
+   // @Override
+   /* public DataResult<List<BookMarkListOnlyIdDto>> getBookMarkListId(int user_id) {
+        return new SuccessDataResult<List<BookMarkListOnlyIdDto>>(this.bookMarkLisrDao.getBookMarkListId(user_id),"Data Listed");
+    }*/
 
-        });
-        return  new SuccessDataResult<List<Integer>>(listId,"DataListed");
-       /* return  new SuccessDataResult<List<In>>(this.bookMarkLisrDao.getBookMarkListId(user_id),
-                "Data Lisrsed");*/
+
+
+
+    @Override
+    public DataResult<List<BookMarkListArtistWithService>> getBookMarkArtistResult(int user_id) {
+        return new  SuccessDataResult<List<BookMarkListArtistWithService>>(this.bookMarkLisrDao.getBookMarkArtistResult(user_id),"Data Listed");
     }
 
     @Override
-    public DataResult<List<AritstWithServiceDto>> getBookMarkArtistResult(int user_id) {
-        return new  SuccessDataResult<List<AritstWithServiceDto>>(this.bookMarkLisrDao.getBookMarkArtistResult(user_id),"Data Listed");
+    public Result deleteArtistFromBookMarkList(int id) {
+        this.bookMarkLisrDao.deleteById(id);
+        return new Result(true,"Data Deleted");
     }
+
+
+    /*public Result deleteArtistFromBookMarkList(int user_id,int artist_id) {
+        this.bookMarkLisrDao.deleteArtistFromBookMarkList(user_id,artist_id);
+        return  new Result(true,"Data Deleted");
+    }*/
 }
