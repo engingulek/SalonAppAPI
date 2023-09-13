@@ -45,5 +45,8 @@ public class Artist {
     @Column(name = "services")
     private List<Integer> services;
 
+    @Column(name = "number")
+    private  String number;
+
 
 }

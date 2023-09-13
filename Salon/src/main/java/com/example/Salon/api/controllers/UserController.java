@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/userCreate")
-    public  DataResult<Integer> createUser(@RequestBody @Validated User user){
+    public  DataResult<UserInfoDto> createUser(@RequestBody @Validated User user){
         return  this.userService.createAccount(user);
     }
 

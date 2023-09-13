@@ -10,7 +10,7 @@ public interface UserService {
 
     DataResult<UserInfoDto> getUserInfo(int id);
 
-    DataResult<Integer> createAccount(User user);
+    DataResult<UserInfoDto> createAccount(User user);
 
     DataResult<UserInfoDto> singInAccount(String email,String password);
 

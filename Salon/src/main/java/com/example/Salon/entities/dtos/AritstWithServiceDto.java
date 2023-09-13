@@ -27,4 +27,6 @@ public class AritstWithServiceDto {
 
     private  Float pay;
 
+
+
 }

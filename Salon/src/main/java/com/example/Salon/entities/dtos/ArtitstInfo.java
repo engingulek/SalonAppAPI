@@ -29,6 +29,8 @@ public class ArtitstInfo {
 
     private  String about;
 
+    private  String number;
+
 
 
 }

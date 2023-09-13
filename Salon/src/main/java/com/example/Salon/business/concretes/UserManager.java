@@ -29,15 +29,14 @@ public class UserManager implements  UserService {
     }
 
     @Override
-    public DataResult<Integer> createAccount(User user) {
+    public DataResult<UserInfoDto> createAccount(User user) {
         var control = this.userDao.controlUserEmail(user.email);
         if (control == 0){
             var save = this.userDao.save(user);
-            var id = save.id;
-            return new SuccessDataResult<Integer>(id,"Create User Success");
-
+            var userInfoDto = this.userDao.getUserInfo(save.id);
+            return new SuccessDataResult<UserInfoDto>(userInfoDto,true,"Create User Success");
         }else{
-            return new SuccessDataResult<Integer>(-1,"Do not create user");
+            return new SuccessDataResult<UserInfoDto>(null,false,"Email already exists");
         }
 
     }
@@ -58,7 +57,7 @@ public class UserManager implements  UserService {
         var control = this.userDao.controlPassword(userUpdate.id,userUpdate.password);
 
         if (control == 0){
-            return new  SuccessDataResult<UserInfoDto>(null,"Do not update");
+            return  new SuccessDataResult<UserInfoDto>(null,false,"Do not data update");
 
         }else{
             Optional<User> userdb = userDao.findById(userUpdate.id);
@@ -69,8 +68,8 @@ public class UserManager implements  UserService {
             user.setPassword(userUpdate.newPassword);
             user.setImageurl(userUpdate.imageurl);
             userDao.save(user);
-
-            return  new SuccessDataResult<UserInfoDto>(this.userDao.getUserInfo(user.id),"Update Data");
+            var userInfo =  this.userDao.getUserInfo(user.id);
+            return  new SuccessDataResult<UserInfoDto>(userInfo,true,"Update Data");
 
         }
     }
