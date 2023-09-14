@@ -1,21 +1,19 @@
 package com.example.Salon.entities.dtos;
 
-import com.example.Salon.entities.concretes.Service;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArtitstInfo {
+public class BookMarkListArtistWithService {
+
     private  int id;
 
+    private int artistId;
+
+    private int userId;
     private String imageUrl;
 
     private  Float rating;
@@ -26,11 +24,4 @@ public class ArtitstInfo {
     private  String locationcity;
 
     private  Float pay;
-
-    private  String about;
-
-    private  String number;
-
-
-
 }

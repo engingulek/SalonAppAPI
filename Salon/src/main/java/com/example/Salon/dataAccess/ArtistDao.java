@@ -18,9 +18,9 @@ public interface ArtistDao  extends JpaRepository<Artist,Integer> {
     List<AritstWithServiceDto> getTopArtists();
 
     // Fetch Artist Info
-@Query(value = "Select new com.example.Salon.entities.dtos.ArtitstInfo(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay,ar.about)"+
+@Query(value = "Select new com.example.Salon.entities.dtos.ArtitstInfo(ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay,ar.about,ar.number)"+
         "From Artist as ar "+
-        "inner join Service as s on  ar.bestserviceid = s.id Where ar.id=:artistId group by ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay,ar.about") // s.id = ANY(ar.services)
+        "inner join Service as s on  ar.bestserviceid = s.id Where ar.id=:artistId group by ar.id,ar.imageUrl,ar.rating,ar.name,s.name,ar.locationcity,ar.pay,ar.about,ar.number") // s.id = ANY(ar.services)
     List<ArtitstInfo> getArtistInfo(int artistId);
 
 // Fetch Artist Comment

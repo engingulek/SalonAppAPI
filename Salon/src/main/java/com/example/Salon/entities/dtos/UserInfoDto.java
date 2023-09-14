@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookMarkListOnlyIdDto {
+public class UserInfoDto {
 
-   private  int id;
-   private   int artist_id;
+    private int id;
 
-   private int user_id;
+    private String  name;
+
+    private  String surname;
+
+    private String email;
+    private  String imageUrl;
 
 }
